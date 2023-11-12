@@ -1,7 +1,9 @@
 .sidebar {
+  width: 226px;
+  min-width: auto;
   position: sticky;
   top: 5rem;
-  flex: 2;
+  flex: 0.2;
   border-radius: 10px;
   text-align: center;
   height: fit-content;
@@ -73,10 +75,10 @@
   margin-top: 0.625rem;
 }
 
-.sidebar__bottom >p{
-    font-size: .8125rem;
-    padding-bottom: .625rem;
-    font-weight: bolder;
+.sidebar__bottom > p {
+  font-size: 0.8125rem;
+  padding-bottom: 0.625rem;
+  font-weight: bolder;
 }
 .sidebar__recentItem {
   display: flex;

@@ -1,4 +1,5 @@
-import './app.css'
+import "./app.css";
+import Feed from "./components/Feed";
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
 
@@ -11,8 +12,11 @@ const App = () => {
       <div className="app__body">
         {/* ============== SIDEBAR =============== */}
         <Sidebar />
+
+        {/* ============== FEED =============== */}
+        <Feed />
+       
       </div>
-      {/* ============== FEED =============== */}
       {/* ============== WIDGETS =============== */}
     </div>
   );

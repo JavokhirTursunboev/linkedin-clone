@@ -1,4 +1,6 @@
+import './app.css'
 import Header from "./components/Header";
+import Sidebar from "./components/Sidebar";
 
 const App = () => {
   return (
@@ -6,7 +8,10 @@ const App = () => {
       {/* ============== HEADER =============== */}
       <Header />
       {/* ============== APP BODY =============== */}
-      {/* ============== SIDEBAR =============== */}
+      <div className="app__body">
+        {/* ============== SIDEBAR =============== */}
+        <Sidebar />
+      </div>
       {/* ============== FEED =============== */}
       {/* ============== WIDGETS =============== */}
     </div>

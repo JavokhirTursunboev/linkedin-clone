@@ -1,7 +1,8 @@
 import { Avatar } from "@mui/material";
 import "./headerOption.css";
 
-function HeaderOption({ Icon, title, avatar }) {
+function HeaderOption(props) {
+  const { Icon, title, avatar } = props;
   return (
     <div className="headerOption">
       {Icon && <Icon className="headerOption__icon" />}

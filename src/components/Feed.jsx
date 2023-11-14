@@ -3,6 +3,7 @@ import CreateIcon from "@mui/icons-material/Create";
 import InputOption from "./InputOption";
 import ImageIcon from "@mui/icons-material/Image";
 import { CalendarViewDay, EventNote, Subscriptions } from "@mui/icons-material";
+import Post from "./Post";
 const Feed = () => {
   return (
     <div className="feed">
@@ -27,6 +28,13 @@ const Feed = () => {
           />
         </div>
       </div>
+
+      {/* =============== Post ========================= */}
+      <Post
+        name="Deen Rakhimov"
+        description="Software Engineering"
+        message="I am happy to share that I am starting a new postition as Sofware engineering at Coupang"
+      />
     </div>
   );
 };

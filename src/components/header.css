@@ -18,10 +18,11 @@
   height: 50px;
 }
 .header__search {
-  padding: 5px;
+  padding: 4px;
+  
   
   margin-top: 0.3125rem;
-  height: 34px;
+  height: 30px;
   display: flex;
   align-items: center;
   border-radius: 0.3125rem;
@@ -29,7 +30,7 @@
   background: #edf3f8;
 }
 .header__search > input {
- 
+  
   outline: none;
   border: none;
   background-color: inherit;

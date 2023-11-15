@@ -1,12 +1,49 @@
 import { useState } from "react";
 import "./login.css";
 
+import { useDispatch } from "react-redux";
+import { login } from "../feature/userSlice";
+// ! import firebase from "firebase/compat/app";
+import "firebase/auth"; // Import the authentication module
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 const Login = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const loginToApp = () => {};
-  const register = () => {};
+  const [pic, setPic] = useState("");
+
+  const dispatch = useDispatch();
+
+  const loginToApp = (e) => {
+    e.preventDefault();
+  };
+  const register = () => {
+    if (!name) {
+      return alert("Please enter a full name!");
+    }
+
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userAuth) => {
+        userAuth.user
+          .updateProfile({
+            displayName: name,
+            photoURL: pic,
+          })
+          .then(() => {
+            dispatch(
+              login({
+                email: userAuth.user.email,
+                uid: userAuth.user.uid,
+                displayName: name,
+                photoUrl: pic,
+              })
+            );
+          });
+      })
+      .catch((error) => alert(error.message));
+  };
 
   return (
     <div className="login">
@@ -21,7 +58,12 @@ const Login = () => {
           type="text"
           placeholder="Full name (requiring if registering"
         />
-        <input type="text" placeholder="Profile pic URL (optional)" />
+        <input
+          value={pic}
+          onChange={(e) => setPic(e.target.value)}
+          type="text"
+          placeholder="Profile pic URL (optional)"
+        />
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}

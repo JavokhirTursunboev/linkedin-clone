@@ -5,7 +5,11 @@ import { useDispatch } from "react-redux";
 import { login } from "../feature/userSlice";
 // ! import firebase from "firebase/compat/app";
 import "firebase/auth"; // Import the authentication module
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from "firebase/auth";
 
 const Login = () => {
   const [name, setName] = useState("");
@@ -18,19 +22,20 @@ const Login = () => {
   const loginToApp = (e) => {
     e.preventDefault();
   };
+
   const register = () => {
     if (!name) {
       return alert("Please enter a full name!");
     }
 
     const auth = getAuth();
+
     createUserWithEmailAndPassword(auth, email, password)
       .then((userAuth) => {
-        userAuth.user
-          .updateProfile({
-            displayName: name,
-            photoURL: pic,
-          })
+        updateProfile(userAuth.user, {
+          displayName: name,
+          photoURL: pic,
+        })
           .then(() => {
             dispatch(
               login({
@@ -40,7 +45,8 @@ const Login = () => {
                 photoUrl: pic,
               })
             );
-          });
+          })
+          .catch((error) => alert(error.message));
       })
       .catch((error) => alert(error.message));
   };
@@ -56,7 +62,7 @@ const Login = () => {
           value={name}
           onChange={(e) => setName(e.target.value)}
           type="text"
-          placeholder="Full name (requiring if registering"
+          placeholder="Full name (requiring if registering)"
         />
         <input
           value={pic}

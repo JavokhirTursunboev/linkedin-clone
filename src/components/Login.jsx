@@ -9,6 +9,7 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 
 const Login = () => {
@@ -49,6 +50,20 @@ const Login = () => {
           .catch((error) => alert(error.message));
       })
       .catch((error) => alert(error.message));
+
+    // #=============== Sign in with email and password ================ //
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userAuth) => {
+        dispatch(
+          login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: name,
+            profileUrl: userAuth.user.photoURL,
+          })
+        );
+      })
+      .catch((error) => alert(error));
   };
 
   return (

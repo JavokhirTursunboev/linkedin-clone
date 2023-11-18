@@ -1,8 +1,8 @@
 # LinkedIn-IO
 
-LinkedIn-IO is a web application built using React.js, Redux, Firebase, and Vite. It aims to provide [add brief description of the main purpose or functionality of your app].
+LinkedIn-IO is a web application built using React.js, Redux, Firebase, and Vite.
 
-
+DEPLOY: `https://linkedin-io.netlify.app`
 - ...
 
 ## Installation

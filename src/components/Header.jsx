@@ -7,14 +7,15 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 
 import "./header.css";
 import HeaderOption from "./HeaderOption";
-import { useDispatch,  } from "react-redux";
-import { logout, } from "../feature/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { logout, selectUser } from "../feature/userSlice";
 import { getAuth } from "firebase/auth";
 import "firebase/auth";
+import { Avatar } from "@mui/material";
 
 function Header() {
   const dispatch = useDispatch();
-
+  const user = useSelector(selectUser);
   // !=============== Logout func ================= //
   const auth = getAuth();
   const logoutApp = () => {
@@ -23,7 +24,7 @@ function Header() {
   };
 
   // ! redux
-  
+
   return (
     <div className="header ">
       {/* ============== Header Left ====================== */}

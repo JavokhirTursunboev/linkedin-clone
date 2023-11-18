@@ -35,7 +35,7 @@ const Login = () => {
       .then((userAuth) => {
         updateProfile(userAuth.user, {
           displayName: name,
-          photoURL: pic,
+          photoUrl: pic,
         })
           .then(() => {
             dispatch(

@@ -7,6 +7,7 @@ import Sidebar from "./components/Sidebar";
 import { login, logout, selectUser } from "./feature/userSlice";
 import { useEffect } from "react";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
+import Widgets from "./components/Widgets";
 
 const App = () => {
   // ! =========  Redux ========= //
@@ -44,6 +45,7 @@ const App = () => {
         <div className="app__body">
           <Sidebar />
           <Feed />
+          <Widgets />
         </div>
       )}
     </div>
